@@ -27,7 +27,7 @@ variable "identity_provider_config_name" {
 variable "issuer_url" {
   description = "(Required) The name of the identity provider config."
   type        = string
-  default     = "https://sts.windows.net/fa2faef1-af66-4b74-b27c-0b1a6aac93db"
+  default     = "https://sts.windows.net/fa2faef1-af66-4b74-b27c-0b1a6aac93db/"
 }
 
 variable "username_claim" {
