@@ -23,13 +23,13 @@ module "vpc" {
 
   public_subnet_tags = {
     "kubernetes.io/cluster/${var.cluster_name}" = "shared"
-    "kubernetes.io/role/elb"                      = 1
+    "kubernetes.io/role/elb"                    = 1
   }
-  
+
   private_subnet_tags = {
     "kubernetes.io/cluster/${var.cluster_name}" = "shared"
-    "kubernetes.io/role/internal-elb"             = 1
-  }  
+    "kubernetes.io/role/internal-elb"           = 1
+  }
 }
 
 module "eks" {
@@ -51,7 +51,7 @@ module "eks" {
 
   eks_managed_node_groups = {
     initial = {
-      instance_types = ["t3.medium"]
+      instance_types                        = ["t3.medium"]
       create_security_group                 = false
       attach_cluster_primary_security_group = true
 
@@ -68,4 +68,9 @@ module "eks" {
   tags = {
     "karpenter.sh/discovery" = var.cluster_name
   }
+}
+
+module "eks_oidc" {
+  depends_on = [module.eks]
+  source     = "./eks_oidc"
 }
