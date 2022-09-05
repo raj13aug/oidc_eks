@@ -9,7 +9,7 @@ resource "kubernetes_cluster_role_binding" "admin" {
   }
   subject {
     api_group = "rbac.authorization.k8s.io"
-    kind      = "aad:248412de-c401-4202-b978-d4761b355107"
-    name      = "admin"
+    kind      = "Group"
+    name      = "aad:248412de-c401-4202-b978-d4761b355107"
   }
 }
