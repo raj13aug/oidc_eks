@@ -70,7 +70,7 @@ module "eks" {
   }
 }
 
-module "eks_oidc" {
-  depends_on = [module.eks]
-  source     = "./eks_oidc"
-}
+#module "eks_oidc" {
+#  depends_on = [module.eks]
+#  source     = "./eks_oidc"
+#}
