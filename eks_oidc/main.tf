@@ -1,3 +1,7 @@
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+
 resource "aws_eks_identity_provider_config" "eks_oidc" {
   count        = var.enable_oidc ? 1 : 0
   cluster_name = var.cluster_name
